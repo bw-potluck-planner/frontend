@@ -17,16 +17,7 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <header className="App-header">
-        <ul>
-          <li>
-            <Link to='/login'>Login</Link>
-          </li>
-          <li>
-            <Link to='/protected'>Profile</Link>
-          </li>
-        </ul>
-      </header>
+      <Header />
       <Switch>
         <PrivateRoute exact path='/protected' component={Profile}/>
         <Route path='/login' component={Login}
