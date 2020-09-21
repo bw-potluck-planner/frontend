@@ -41,31 +41,33 @@ export default function Form() {
 
   return (
     <>
-      <div className="main">
-        <h2>Login</h2>
-        <form onSubmit={submit}>
-          <div className="item">
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={userData.username}
-              onChange={change}
-            />
-          </div>
-          <div className="item">
-            <input
-              type="text"
-              name="password"
-              placeholder="Password"
-              value={userData.password}
-              onChange={change}
-            />
-          </div>
-          <div className="item">
-            <button id="subutton">Submit</button>
-          </div>
-        </form>
+      <div className="loginBox">
+        <div className="mainForm">
+          <h2>Begin Planning</h2>
+          <form onSubmit={submit}>
+            <div className="item">
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={userData.username}
+                onChange={change}
+              />
+            </div>
+            <div className="item">
+              <input
+                type="text"
+                name="password"
+                placeholder="Password"
+                value={userData.password}
+                onChange={change}
+              />
+            </div>
+            <div className="itemSub">
+              <button id="subutton">Login</button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

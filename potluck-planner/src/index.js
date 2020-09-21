@@ -1,23 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
-import thunk from 'redux-thunk';
-import reducer from '';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import reducer from "";
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  
   <React.StrictMode>
     <Provider store={store}>
-    <App />
+      <App />
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
@@ -29,4 +28,4 @@ serviceWorker.unregister();
 // 2. Set up reducer.js and actions.js
 // 3. axiosWithAuth -x
 // 4. Set up API calls and console.log the inputs
-  // 4a. You'll be making API calls in your actions.js 
+// 4a. You'll be making API calls in your actions.js

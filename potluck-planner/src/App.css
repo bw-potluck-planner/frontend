@@ -1,38 +1,219 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat:wght@200;400;600&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
+body {
   background-color: #282c34;
-  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  color: #36382e;
+}
+/* Header */
+.head {
+  height: 10vh;
+  background-color: #fdf0d5;
+  color: #36382e;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px black solid;
+}
+.head h1 {
+  font-family: "Courgette", cursive;
+  font-size: 5rem;
+  margin: auto 2%;
+}
+nav {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+}
+nav a {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #36382e;
+}
+
+/* Forms */
+.loginBox {
+  width: auto;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 5%;
+}
+
+.mainForm {
+  border: 2px solid black;
+  border-radius: 25px;
+  width: 15%;
+  padding: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background-color: #fdf0d5;
+}
+
+.mainForm h2 {
+  font-family: "Courgette", cursive;
+  text-align: center;
+  font-size: 2rem;
+  margin: 1%;
+}
+
+.item {
+  margin: 10% auto;
+}
+.itemSub {
+  display: flex;
+  justify-content: center;
+}
+.itemSub button {
+  font-size: 1.2rem;
+  width: 50%;
+}
+
+/* Main Body */
+.mainBody {
+  padding-top: 2%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+.mainBody h2 {
+  font-size: 2rem;
   color: white;
+  margin: 2% 0;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mainBody img {
+  width: 50%;
+  border-radius: 20px;
 }
