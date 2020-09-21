@@ -5,6 +5,10 @@ import "./App.css";
 import PrivateRoute from "./Components/PrivateRoute";
 import Profile from './Components/Profile';
 
+
+import Login from "./Components/LoginForm";
+
+
 function App() {
   return (
     <Router>
@@ -21,6 +25,7 @@ function App() {
       </header>
       <Switch>
         <PrivateRoute exact path='/protected' component={Profile}/>
+        <Route path='/login' component={Login}
       </Switch>
     </div>
     </Router>
