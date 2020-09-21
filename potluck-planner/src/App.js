@@ -1,14 +1,13 @@
 import React from "react";
 import "./App.css";
-import Form from "./Components/LoginForm";
+import Login from "./Components/LoginForm";
+import Header from "./Components/Header";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Potluck Starting Point</p>
-        <Form />
-      </header>
+      <Header />
+      <Login />
     </div>
   );
 }

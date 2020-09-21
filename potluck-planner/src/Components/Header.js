@@ -1,2 +1,10 @@
 import React from "react";
-//TEMP
+export default function Header() {
+  return (
+    <>
+      <header className="head">
+        <h1>Potluck Planner</h1>
+      </header>
+    </>
+  );
+}
