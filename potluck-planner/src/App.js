@@ -25,7 +25,7 @@ function App() {
       </header>
       <Switch>
         <PrivateRoute exact path='/protected' component={Profile}/>
-        <Route path='/login' component={Login}
+        <Route path='/login' component={Login}/>
       </Switch>
     </div>
     </Router>
