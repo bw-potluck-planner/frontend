@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat:wght@200;400;600&display=swap");
 
 html,
 body,
@@ -126,23 +127,43 @@ table {
 
 body {
   background-color: #282c34;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  color: #36382e;
 }
-
+/* Header */
 .head {
   height: 10vh;
   background-color: #fdf0d5;
   color: #36382e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px black solid;
 }
 .head h1 {
+  font-family: "Courgette", cursive;
   font-size: 5rem;
+  margin: auto 2%;
+}
+nav {
+  width: 40%;
+  display: flex;
+  justify-content: space-evenly;
+}
+nav a {
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #36382e;
 }
 
+/* Forms */
 .loginBox {
   width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 5%;
 }
 
 .mainForm {
@@ -158,6 +179,8 @@ body {
 }
 
 .mainForm h2 {
+  font-family: "Courgette", cursive;
+  text-align: center;
   font-size: 2rem;
   margin: 1%;
 }
@@ -172,4 +195,25 @@ body {
 .itemSub button {
   font-size: 1.2rem;
   width: 50%;
+}
+
+/* Main Body */
+.mainBody {
+  padding-top: 2%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+.mainBody h2 {
+  font-size: 2rem;
+  color: white;
+  margin: 2% 0;
+}
+.mainBody img {
+  width: 50%;
+  border-radius: 20px;
 }
