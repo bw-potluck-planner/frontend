@@ -1,26 +1,38 @@
 import React from "react";
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom';
+
 import "./App.css";
+
 import Login from "./Components/LoginForm";
 import Header from "./Components/Header";
 import Register from "./Components/RegisterForm";
 import Main from "./Components/Mainbody";
-import { Route } from "react-router-dom";
+
+import PrivateRoute from "./Components/PrivateRoute";
+import Profile from './Components/Profile';
+
+
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <Header />
-
-      <Route exact path="/">
-        <Main />
-      </Route>
-      <Route path="/login">
-        <Login />
-      </Route>
-      <Route path="/register">
-        <Register />
-      </Route>
+      <header className="App-header">
+        <ul>
+          <li>
+            <Link to='/login'>Login</Link>
+          </li>
+          <li>
+            <Link to='/protected'>Profile</Link>
+          </li>
+        </ul>
+      </header>
+      <Switch>
+        <PrivateRoute exact path='/protected' component={Profile}/>
+        <Route path='/login' component={Login}
+      </Switch>
     </div>
+    </Router>
   );
 }
 
