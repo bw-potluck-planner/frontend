@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../../node_modules/axios";
 
 const blankData = {
   username: "",
   password: "",
+  role: "",
 };
 
-export default function Form() {
+export default function Register() {
   const [userData, setUserData] = useState(blankData);
   const [userList, setUserList] = useState([]);
 
@@ -27,17 +27,17 @@ export default function Form() {
     setUserList([...userList, userData]);
   };
 
-  useEffect(() => {
-    axios
-      .get("")
-      .then((res) => {
-        console.log(res);
-        // setUserList(...userList, res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get("")
+  //     .then((res) => {
+  //       console.log(res);
+  //       // setUserList(...userList, res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -59,6 +59,15 @@ export default function Form() {
               name="password"
               placeholder="Password"
               value={userData.password}
+              onChange={change}
+            />
+          </div>
+          <div className="item">
+            <input
+              type="text"
+              name="role"
+              placeholder="Role"
+              value={userData.role}
               onChange={change}
             />
           </div>
