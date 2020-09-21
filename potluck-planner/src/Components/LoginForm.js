@@ -42,7 +42,7 @@ export default function Form() {
   return (
     <>
       <div className="main">
-        <h2>Sign up!</h2>
+        <h2>Login</h2>
         <form onSubmit={submit}>
           <div className="item">
             <input
