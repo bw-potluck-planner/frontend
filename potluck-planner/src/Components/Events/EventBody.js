@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-import React from "react";
-=======
 import React, { useState, useEffect } from "react";
->>>>>>> 6d9b582f53af050384b65f2243105b2dfe65bc03
 import axios from "axios";
+
 
 const blankData = {
   Name: "",

@@ -1,4 +1,5 @@
 import React from "react";
+import PotLuck from "./PotLuck";
 
 const ProfileCard = ({ profile }) => {
   return (
@@ -9,6 +10,7 @@ const ProfileCard = ({ profile }) => {
         <p>{profile.contact}</p>
         <p>{profile.confirmation === 0 ? "not attending" : "attending"}</p>
       </div>
+      <PotLuck/>
     </div>
   );
 };

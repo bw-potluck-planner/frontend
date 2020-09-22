@@ -4,6 +4,7 @@ import { fetchData } from "../actions/actions";
 import ProfileCard from "./ProfileCard";
 import EventForm from "./Events/EventForm";
 
+
 const Profile = (props) => {
   const [visable, setVisable] = useState(false);
   const { fetchData } = props;
@@ -14,15 +15,6 @@ const Profile = (props) => {
 
   return (
     <div>
-<<<<<<< HEAD
-        {props.profile.map(profile => {
-            console.log(profile)
-            return(
-                <ProfileCard key={profile.id} profile={profile} /> 
-            )
-        })}
-        <p>Profile</p>
-=======
       {props.profile.map((profile) => {
         console.log(profile);
         return <ProfileCard key={profile.id} profile={profile} />;
@@ -36,7 +28,7 @@ const Profile = (props) => {
         Add Event
       </button>
       {!visable ? "" : <EventForm />}
->>>>>>> 6d9b582f53af050384b65f2243105b2dfe65bc03
+      
     </div>
   );
 };
