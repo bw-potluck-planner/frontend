@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth"
+import { useHistory } from "react-router";
 
 const blankData = {
   username: "",
@@ -8,7 +9,8 @@ const blankData = {
 
 export default function Form() {
   const [userData, setUserData] = useState(blankData);
-  const [userList, setUserList] = useState([]);
+  // const [userList, setUserList] = useState([]);
+  let history = useHistory();
 
   const change = (evt) => {
     const { name, value } = evt.target;
@@ -17,27 +19,28 @@ export default function Form() {
 
   const submit = (evt) => {
     evt.preventDefault();
-    addUser();
-    setUserData(blankData);
-    console.log("UserData", userData);
-    console.log("UserList", userList);
-  };
-
-  const addUser = () => {
-    setUserList([...userList, userData]);
-  };
-
-  useEffect(() => {
     axiosWithAuth()
-      .get("/api/auth/login")
+      .post("/api/auth/login")
       .then((res) => {
-        console.log(res);
-        setUserList(...userList, res.data);
+       localStorage.setItem("token", res.data.token)
+       history.push("/protected")
       })
       .catch((err) => {
         console.log(err);
-      });
-  }, [userList]);
+      })
+      .finally(() => {
+        setUserData(blankData)
+      })
+    
+  };
+
+  // const addUser = () => {
+  //   setUserList([...userList, userData]);
+  // };
+
+  // useEffect(() => {
+    
+  // }, [userList]);
 
   return (
     <>

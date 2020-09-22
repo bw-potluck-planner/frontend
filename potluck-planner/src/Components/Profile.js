@@ -16,6 +16,7 @@ return(
                 <ProfileCard key={profile.id} profile={profile} />
             )
         })}
+        <p>Profile</p>
     </div>
 )
 }

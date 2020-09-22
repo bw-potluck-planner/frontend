@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { axiosWithAuth } from "../utils/axiosWithAuth"
+import { useHistory } from "react-router";
 
 
 const blankData = {
@@ -10,7 +11,8 @@ const blankData = {
 
 export default function Register() {
   const [userData, setUserData] = useState(blankData);
-  const [userList, setUserList] = useState([]);
+  //const [userList, setUserList] = useState([]);
+  let history = useHistory();
 
   const change = (evt) => {
     const { name, value } = evt.target;
@@ -19,27 +21,32 @@ export default function Register() {
 
   const submit = (evt) => {
     evt.preventDefault();
-    addUser();
-    setUserData(blankData);
-    console.log("UserData", userData);
-    console.log("UserList", userList);
-  };
-
-  const addUser = () => {
-    setUserList([...userList, userData]);
-  };
-
-  useEffect(() => {
     axiosWithAuth()
-      .get("/api/auth/register")
+      .post("/api/auth/register", userData)
       .then((res) => {
-        console.log(res);
-        setUserList(...userList, res.data);
+        localStorage.setItem("token", res.data.token)
+        console.log(res.data.token)
+        history.push("/protected")
       })
       .catch((err) => {
         console.log(err);
-      });
-  }, [userList]);
+      })
+      .finally(() => {
+        setUserData(blankData)
+      })
+    // addUser();
+    // setUserData(blankData);
+    console.log("UserData", userData);
+    
+  };
+
+  // const addUser = () => {
+  //   setUserList([...userList, userData]);
+  // };
+
+  // useEffect(() => {
+    
+  // }, []);
 
   return (
     <>

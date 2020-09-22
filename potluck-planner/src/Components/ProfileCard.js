@@ -8,6 +8,7 @@ const ProfileCard = ({profile}) => {
                 <p>{profile.role}</p>
                 <p>{profile.contact}</p>
             </div>
+            <p>Profile Card</p>
         </div>
     )
 }
