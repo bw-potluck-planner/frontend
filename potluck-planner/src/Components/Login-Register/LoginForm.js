@@ -1,19 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth"
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { useHistory } from "react-router";
+import schema from "./logValidate";
+import * as yup from "yup";
 
 const blankData = {
+  username: "",
+  password: "",
+};
+const errorStrings = {
   username: "",
   password: "",
 };
 
 export default function Form() {
   const [userData, setUserData] = useState(blankData);
+  const [formErrors, setFormErrors] = useState(errorStrings);
+  const [disabled, setDisabled] = useState(false);
   // const [userList, setUserList] = useState([]);
   let history = useHistory();
 
   const change = (evt) => {
     const { name, value } = evt.target;
+    validate(name, value);
     setUserData({ ...userData, [name]: value });
   };
 
@@ -22,16 +31,15 @@ export default function Form() {
     axiosWithAuth()
       .post("/api/auth/login", userData)
       .then((res) => {
-       localStorage.setItem("token", res.data.token)
-       history.push("/protected")
+        localStorage.setItem("token", res.data.token);
+        history.push("/protected");
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
-        setUserData(blankData)
-      })
-    
+        setUserData(blankData);
+      });
   };
 
   // const addUser = () => {
@@ -39,8 +47,32 @@ export default function Form() {
   // };
 
   // useEffect(() => {
-    
+
   // }, [userList]);
+
+  const validate = (name, value) => {
+    yup
+      .reach(schema, name)
+      .validate(value)
+      .then((valid) => {
+        setFormErrors({
+          ...formErrors,
+          [name]: "",
+        });
+      })
+
+      .catch((err) => {
+        setFormErrors({
+          ...formErrors,
+          [name]: err.errors[0],
+        });
+      });
+  };
+  useEffect(() => {
+    schema.isValid(userData).then((valid) => {
+      setDisabled(!valid);
+    });
+  }, [userData]);
 
   return (
     <>
@@ -57,6 +89,7 @@ export default function Form() {
                 onChange={change}
               />
             </div>
+            <p className="errorMsg">{formErrors.username}</p>
             <div className="item">
               <input
                 type="text"
@@ -66,8 +99,11 @@ export default function Form() {
                 onChange={change}
               />
             </div>
+            <p className="errorMsg">{formErrors.password}</p>
             <div className="itemSub">
-              <button id="subutton">Login</button>
+              <button id="subutton" disabled={disabled}>
+                Login
+              </button>
             </div>
           </form>
         </div>
