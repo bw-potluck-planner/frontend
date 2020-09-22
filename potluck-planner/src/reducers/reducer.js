@@ -11,11 +11,10 @@ import {
 
 export const initialState = {
   profile: [],
+  potluck: []
 };
 
-export const potluckState = {
-  potluck: [],
-};
+
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -43,37 +42,33 @@ export default (state = initialState, action) => {
           item.id === action.payload.id ? action.payload : item
         ),
       };
+    case GET_POTLUCK:
+      return {
+        ...state,
+        potluck: action.payload,
+      };
+    case POST_POTLUCK:
+      return {
+        ...state,
+        potluck: action.payload,
+      };
+    case PUT_POTLUCK:
+      return {
+        ...state,
+        potluck: state.potluck.map((item) =>
+          item.id === action.payload.id ? action.payload : item
+        ),
+      };
+    case DELETE_POTLUCK:
+      return {
+        ...state,
+        potluck: state.potluck.map((item) =>
+          item.id === action.payload.id ? action.payload : item
+        ),
+      };
 
     default:
       return state;
   }
 };
 
-// export default (state = potluckState, action) => {
-//   switch (action.payload) {
-//     case GET_POTLUCK:
-//       return {
-//         ...state,
-//         profile: action.payload,
-//       };
-//     case POST_POTLUCK:
-//       return {
-//         ...state,
-//         profile: action.payload,
-//       };
-//     case PUT_POTLUCK:
-//       return {
-//         ...state,
-//         profile: state.profile.map((item) =>
-//           item.id === action.payload.id ? action.payload : item
-//         ),
-//       };
-//     case DELETE_POTLUCK:
-//       return {
-//         ...state,
-//         profile: state.profile.map((item) =>
-//           item.id === action.payload.id ? action.payload : item
-//         ),
-//       };
-//   }
-// };

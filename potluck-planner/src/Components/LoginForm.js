@@ -20,7 +20,7 @@ export default function Form() {
   const submit = (evt) => {
     evt.preventDefault();
     axiosWithAuth()
-      .post("/api/auth/login")
+      .post("/api/auth/login", userData)
       .then((res) => {
        localStorage.setItem("token", res.data.token)
        history.push("/protected")
