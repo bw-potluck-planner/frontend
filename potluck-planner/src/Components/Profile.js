@@ -4,16 +4,15 @@ import { fetchData } from "../actions/actions";
 import ProfileCard from "./ProfileCard";
 
 const Profile = (props) => {
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { fetchData } = props;
 
   return (
     <div>
       {props.profile.map((profile) => {
+        console.log(profile);
         return <ProfileCard key={profile.id} profile={profile} />;
       })}
-      {/* <p>Profile</p> */}
+      <p>Profile</p>
     </div>
   );
 };

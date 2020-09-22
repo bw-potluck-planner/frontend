@@ -7,6 +7,7 @@ const ProfileCard = ({profile}) => {
             <div>
                 <p>{profile.role}</p>
                 <p>{profile.contact}</p>
+                <p>{profile.confirmation === 0 ? "not attending" : "attending"}</p>
             </div>
             <p>Profile Card</p>
         </div>
