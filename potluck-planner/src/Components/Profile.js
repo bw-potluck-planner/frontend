@@ -20,6 +20,7 @@ const Profile = (props) => {
       })}
 
       <button
+        className="addEventBtn"
         onClick={() => {
           setVisable(!visable);
         }}

@@ -5,9 +5,9 @@ const ProfileCard = ({ profile }) => {
     <div className="profile-card">
       <h2>{profile.name}</h2>
       <div>
-        <p>{profile.role}</p>
-        <p>{profile.contact}</p>
-        <p>{profile.confirmation === 0 ? "not attending" : "attending"}</p>
+        <p>Role: {profile.role}</p>
+        <p>Contact: {profile.contact}</p>
+        <p>{profile.confirmation === 0 ? "Not Attending" : "Attending"}</p>
       </div>
     </div>
   );

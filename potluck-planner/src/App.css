@@ -201,7 +201,7 @@ nav a {
 
 .errorMsg {
   font-size: 0.8rem;
-  color: #d64933;
+  color: red;
 }
 
 /* Main Body */
@@ -324,4 +324,19 @@ nav a {
   flex-flow: column nowrap;
   background-color: #36382e;
   margin: 2%;
+}
+.profile-card h2 {
+  font-size: 2rem;
+}
+.profile-card div {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column;
+  margin: 2% auto;
+}
+
+.addEventBtn {
+  width: 10%;
+  font-size: 1.5rem;
+  margin: 0 5%;
 }
