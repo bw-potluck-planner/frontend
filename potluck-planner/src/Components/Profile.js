@@ -4,6 +4,7 @@ import { fetchData } from "../actions/actions";
 import ProfileCard from "./ProfileCard";
 import EventForm from "./Events/EventForm";
 
+
 const Profile = (props) => {
   const [visable, setVisable] = useState(false);
   const { fetchData } = props;
@@ -28,6 +29,7 @@ const Profile = (props) => {
         Add Event
       </button>
       {!visable ? "" : <EventForm />}
+      
     </div>
   );
 };
