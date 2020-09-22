@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 
 const blankData = {
   username: "",
@@ -27,17 +29,17 @@ export default function Register() {
     setUserList([...userList, userData]);
   };
 
-  // useEffect(() => {
-  //   axios
-  //     .get("")
-  //     .then((res) => {
-  //       console.log(res);
-  //       // setUserList(...userList, res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    axios
+      .get("/api/auth/register")
+      .then((res) => {
+        console.log(res);
+        setUserList(...userList, res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [userList]);
 
   return (
     <>
