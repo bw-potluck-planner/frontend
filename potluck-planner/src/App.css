@@ -128,7 +128,7 @@ table {
 body {
   background-color: #fdf0d5;
   font-family: "Montserrat", sans-serif;
-  color: #fdf0d5;
+  color: #d64933;
 }
 /* Header */
 .head {
@@ -201,7 +201,7 @@ nav a {
 
 .errorMsg {
   font-size: 0.8rem;
-  color: red;
+  color: #d64933;
 }
 
 /* Main Body */
@@ -310,4 +310,18 @@ nav a {
 }
 .eventFBox input {
   margin-top: 4%;
+}
+
+/* Profile */
+.profile-card {
+  text-align: center;
+  border: 2px solid black;
+  color: black;
+  border-radius: 25px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background-color: #36382e;
+  margin: 2%;
 }

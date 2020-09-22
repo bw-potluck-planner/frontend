@@ -1,10 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchData } from "../actions/actions";
 import ProfileCard from "./ProfileCard";
+import EventForm from "./Events/EventForm";
 
 const Profile = (props) => {
+  const [visable, setVisable] = useState(false);
   const { fetchData } = props;
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -12,7 +18,15 @@ const Profile = (props) => {
         console.log(profile);
         return <ProfileCard key={profile.id} profile={profile} />;
       })}
-      <p>Profile</p>
+
+      <button
+        onClick={() => {
+          setVisable(!visable);
+        }}
+      >
+        Add Event
+      </button>
+      {!visable ? "" : <EventForm />}
     </div>
   );
 };
