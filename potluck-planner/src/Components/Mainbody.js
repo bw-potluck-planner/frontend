@@ -4,7 +4,7 @@ export default function Main() {
     <>
       <div className="mainBody">
         <h2>Potluck Planner</h2>
-        <img src="https://floridacommunity.com/wp-content/uploads/2016/11/potluck.jpg" />
+        <img src="https://floridacommunity.com/wp-content/uploads/2016/11/potluck.jpg" alt=""/>
       </div>
     </>
   );

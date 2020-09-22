@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
 
@@ -7,22 +7,32 @@ import Login from "./Components/LoginForm";
 import Header from "./Components/Header";
 import Register from "./Components/RegisterForm";
 import Main from "./Components/Mainbody";
-
-import PrivateRoute from "./Components/PrivateRoute";
 import Profile from "./Components/Profile";
 
+import PrivateRoute from "./Components/PrivateRoute";
+
+
 function App() {
+
+  
   return (
-    <Router>
-      <div className="App">
-        <Header />
+    <>
+      <Header />
+        <div className="App">
         <Switch>
-          <PrivateRoute exact path="/protected" component={Profile} />
+          <PrivateRoute path="/protected" component={Profile}/>
+         
+
+          {/* <Route path="/protected" component={Profile} /> */}
           <Route path="/login" component={Login} />
+          <Route path="/register" component={Register}/>
         </Switch>
+        <Main/>
       </div>
-    </Router>
-  );
+      </>
+  )
 }
+
+
 
 export default App;
