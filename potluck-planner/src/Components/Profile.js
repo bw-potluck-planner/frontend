@@ -15,7 +15,7 @@ return(
         {props.profile.map(profile => {
             console.log(profile)
             return(
-                <ProfileCard key={profile.id} profile={profile} />
+                <ProfileCard key={profile.id} profile={profile} /> 
             )
         })}
         <p>Profile</p>
