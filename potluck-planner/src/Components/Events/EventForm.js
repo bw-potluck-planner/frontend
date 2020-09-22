@@ -29,19 +29,12 @@ export default function EventForm() {
   const change = (evt) => {
     const { name, value, checked, type } = evt.target;
     const toChange = type === "checkbox" ? checked : value;
-    setUserData({ ...eventData, [name]: toChange });
+    setEventData({ ...eventData, [name]: toChange });
   };
 
   const submit = (evt) => {
     evt.preventDefault();
-    addUser();
-    setUserData(blankData);
-    console.log("UserData", userData);
-    console.log("UserList", userList);
-  };
-
-  const addUser = () => {
-    setUserList([...userList, userData]);
+    setEventData(blankData);
   };
 
   useEffect(() => {
@@ -58,73 +51,73 @@ export default function EventForm() {
 
   return (
     <>
-      <div className="loginBox">
-        <div className="mainForm">
+      <div className="eventForm">
+        <div className="divH2">
           <h2>Event Form</h2>
+        </div>
+        <div className="eventFBox">
           <form onSubmit={submit}>
-            <div className="item">
+            <div className="eventItem">
+              <label>Event Name</label>
               <input
                 type="text"
                 name="Name"
-                placeholder="Event Name"
-                value={userData.Name}
+                value={eventData.Name}
                 onChange={change}
               />
             </div>
-            <div className="item">
+            <div className="eventItem">
+              <label>Date</label>
               <input
                 type="text"
                 name="Date"
-                placeholder="Date"
-                value={userData.Date}
+                value={eventData.Date}
                 onChange={change}
               />
             </div>
-            <div className="item">
-              <input
-                type="text"
-                name="Location"
-                placeholder="Location"
-                value={userData.Location}
-                onChange={change}
-              />
+            <div className="eventItem">
+              <label>Location</label>
+              <input type="text" value={eventData.Location} onChange={change} />
             </div>
-            <div className="item">
+            <div className="eventItem">
+              <label>Dish Name</label>
               <input
                 type="text"
                 name="Dish Name"
-                placeholder="Dish Name"
-                value={userData["Dish Name"]}
+                value={eventData["Dish Name"]}
                 onChange={change}
               />
             </div>
-            <div className="item">
+            <div className="eventItem">
+              <label>Description</label>
               <input
                 type="text"
                 name="Description"
-                placeholder="Description"
-                value={userData.Description}
+                value={eventData.Description}
                 onChange={change}
               />
             </div>
-            <div className="item">
-              <input
-                type="checkbox"
-                name="AllergyAlert"
-                value={userData.AllergyAlert}
-                onChange={change}
-              />
-            </div>
-            <div className="item">
+            <div className="eventItem">
+              <label>Email</label>
               <input
                 type="text"
                 name="Email"
-                placeholder="Email Contact"
-                value={userData.Email}
+                value={eventData.Email}
                 onChange={change}
               />
             </div>
-            <div className="itemSub">
+            <div className="eventItem">
+              <label>
+                Allergy Alert
+                <input
+                  type="checkbox"
+                  name="AllergyAlert"
+                  value={eventData.AllergyAlert}
+                  onChange={change}
+                />
+              </label>
+            </div>
+            <div className="eventItemSub">
               <button id="subutton">Create</button>
             </div>
           </form>

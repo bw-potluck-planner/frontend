@@ -126,15 +126,15 @@ table {
 }
 
 body {
-  background-color: #282c34;
+  background-color: #fdf0d5;
   font-family: "Montserrat", sans-serif;
-  color: #36382e;
+  color: #fdf0d5;
 }
 /* Header */
 .head {
-  height: 10vh;
-  background-color: #fdf0d5;
-  color: #36382e;
+  height: 12vh;
+  background-color: #36382e;
+  color: #fdf0d5;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -144,6 +144,7 @@ body {
   font-family: "Courgette", cursive;
   font-size: 5rem;
   margin: auto 2%;
+  padding-top: 1%;
 }
 nav {
   width: 40%;
@@ -154,7 +155,7 @@ nav a {
   font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
-  color: #36382e;
+  color: #fdf0d5;
 }
 
 /* Forms */
@@ -193,8 +194,14 @@ nav a {
   justify-content: center;
 }
 .itemSub button {
+  margin-top: 5%;
   font-size: 1.2rem;
   width: 50%;
+}
+
+.errorMsg {
+  font-size: 0.8rem;
+  color: red;
 }
 
 /* Main Body */
@@ -204,7 +211,6 @@ nav a {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  width: 80%;
   text-align: center;
   margin: 0 auto;
 }
@@ -216,4 +222,92 @@ nav a {
 .mainBody img {
   width: 50%;
   border-radius: 20px;
+}
+
+/* Event Body */
+.eventBody {
+  border: 2px solid black;
+  color: black;
+  border-radius: 25px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background-color: #fdf0d5;
+}
+/* .eventBody div {
+  border: 1px solid black;
+} */
+.divH2 {
+  padding: 1%;
+  border-bottom: 2px black solid;
+  display: flex;
+  justify-content: start;
+  flex-flow: row nowrap;
+  background-color: #36382e;
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+}
+.eventBody h2 {
+  font-family: "Courgette", cursive;
+  padding-left: 2%;
+  font-size: 4rem;
+  color: #000;
+}
+.infoBox {
+  padding: 1%;
+  display: flex;
+  align-items: flex-start;
+  flex-flow: column nowrap;
+}
+.eventBody p {
+  padding: 2%;
+  font-size: 1.5rem;
+}
+
+/* Event Form */
+.eventForm {
+  border: 2px solid black;
+  color: black;
+  border-radius: 25px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background-color: #36382e;
+  margin: 2%;
+}
+
+.eventForm h2 {
+  font-family: "Courgette", cursive;
+  margin: 2% auto;
+  font-size: 4rem;
+  color: #000;
+}
+.eventFBox {
+  background-color: #fdf0d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  padding: 5%;
+}
+
+.eventItem {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  font-size: 1.5rem;
+  margin: 4%;
+  padding-bottom: 5%;
+}
+.eventItemSub button {
+  margin-bottom: 10%;
+  font-size: 1.2rem;
+  width: 50%;
+}
+.eventFBox input {
+  margin-top: 4%;
 }
