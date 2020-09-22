@@ -7,7 +7,7 @@ const Profile = (props) => {
 
 useEffect(() => {
  fetchData()
-}, [fetchData])
+}, [])
 
 return(
     <div>

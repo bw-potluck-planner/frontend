@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth"
 
 
 const blankData = {
@@ -30,7 +30,7 @@ export default function Register() {
   };
 
   useEffect(() => {
-    axios
+    axiosWithAuth()
       .get("/api/auth/register")
       .then((res) => {
         console.log(res);

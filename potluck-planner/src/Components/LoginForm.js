@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../../node_modules/axios";
+import { axiosWithAuth } from "../utils/axiosWithAuth"
 
 const blankData = {
   username: "",
@@ -28,16 +28,16 @@ export default function Form() {
   };
 
   useEffect(() => {
-    axios
-      .get("")
+    axiosWithAuth()
+      .get("/api/auth/login")
       .then((res) => {
         console.log(res);
-        // setUserList(...userList, res.data);
+        setUserList(...userList, res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [userList]);
 
   return (
     <>
