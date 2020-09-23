@@ -79,7 +79,7 @@ export default function Form() {
       <div className="formBG">
         <div className="loginBox">
           <div className="mainForm">
-            <h2>Begin Planning</h2>
+            <h2>Login</h2>
             <form onSubmit={submit}>
               <div className="item">
                 <input

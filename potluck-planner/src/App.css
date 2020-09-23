@@ -331,6 +331,43 @@ nav a:hover {
   margin-top: 4%;
 }
 
+/******Edit Event Form*****/
+.editEventForm {
+  border: 2px solid black;
+  color: black;
+  border-radius: 25px;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background-color: #36382e;
+  margin: 2%;
+}
+.editEventForm h2 {
+  font-family: "Courgette", cursive;
+  margin: 2% auto;
+  font-size: 3rem;
+  color: #000;
+}
+.editEventBox {
+  background-color: #fdf0d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  padding: 5%;
+}
+.editEventItemSub button {
+  margin-bottom: 10%;
+  font-size: 1.2rem;
+  width: 50%;
+}
+.editEventBox input {
+  margin-top: 4%;
+}
+
 /* Profile */
 .profile-card {
   text-align: center;
