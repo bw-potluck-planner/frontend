@@ -113,15 +113,13 @@ function EventForm(props) {
               />
             </div>
             <div className="eventItem">
-              <label>
-                Allergy Alert
-                <input
-                  type="checkbox"
-                  name="allergyalert"
-                  value={eventData.allergyalert}
-                  onChange={change}
-                />
-              </label>
+              <label>Allergy Alert</label>
+              <input
+                type="checkbox"
+                name="allergyalert"
+                value={eventData.allergyalert}
+                onChange={change}
+              />
             </div>
             <div className="eventItemSub">
               <button id="subutton">Create</button>

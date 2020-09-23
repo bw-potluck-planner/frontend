@@ -23,8 +23,8 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/edit-event/:id" component={EditEventForm}/>
+          <Route path="/" component={Main} />
         </Switch>
-        <Main />
       </div>
     </>
   );
