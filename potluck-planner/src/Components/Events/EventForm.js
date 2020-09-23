@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import {useHistory} from "react-router-dom"
 import { connect } from 'react-redux'
 
 import {postPotluck} from '../../actions/actions'
@@ -15,25 +15,9 @@ const blankData = {
 };
 
 function EventForm(props) {
+  const {postPotluck} = props
   const [eventData, setEventData] = useState(blankData);
-  // const id = useParams().id
-
-  // useEffect(() => {
-  //   // props.getPotluckByID(id)
-
-  //       axiosWithAuth().get(`/api/potluck/${id}`)
-  //       .then(res => {
-  //         console.log('Action getByID --> ', res);
-  //         setEventData({ name: res.data.name, description: res.data.description})
-  //       })
-  //       .catch(err => {
-  //       console.log(err);
-  // })    
-
-    // when user clicks an edit button, get ID of that card
-    // make a GET request using that ID
-    // fill out the form with the response data you get back for it.
-  // }, [])
+  const history = useHistory()
 
  
 
@@ -45,8 +29,8 @@ function EventForm(props) {
 
   const submit = (evt) => {
     evt.preventDefault();
-    props.postPotluck(eventData)
-    
+    postPotluck(eventData)
+    history.push("/protected")
   };
 
 

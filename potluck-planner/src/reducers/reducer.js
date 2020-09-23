@@ -3,6 +3,7 @@ import {
   DELETE_POTLUCK,
   FETCH_DATA,
   GET_POTLUCK,
+  GET_POTLUCK_BY_ID,
   POST_DATA,
   POST_POTLUCK,
   PUT_DATA,
@@ -47,6 +48,11 @@ export default (state = initialState, action) => {
         ...state,
         potluck: action.payload,
       };
+    case GET_POTLUCK_BY_ID:
+        return{
+            ...state,
+            potluck: action.payload
+        }
     case POST_POTLUCK:
       return {
         ...state,

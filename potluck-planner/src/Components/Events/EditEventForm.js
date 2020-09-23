@@ -37,6 +37,7 @@ const blankData = {
   const submit = (e) => {
     e.preventDefault()
     putPotluck(id)
+    history.push("/protected")
   }
   
   return(

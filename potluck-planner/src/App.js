@@ -12,6 +12,7 @@ import Profile from "./Components/Profile";
 
 import PrivateRoute from "./Components/PrivateRoute";
 import EditEventForm from "./Components/Events/EditEventForm";
+import EventForm from "./Components/Events/EventForm";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/edit-event/:id" component={EditEventForm}/>
+          <Route path="/add-event" component={EventForm}/>
           <Route path="/" component={Main} />
         </Switch>
       </div>

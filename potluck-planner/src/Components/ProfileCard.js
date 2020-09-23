@@ -1,6 +1,6 @@
 import React from "react";
-import PotLuck from "./PotLuck";
-import EventForm from './Events/EventForm'
+
+
 
 const ProfileCard = ({ profile }) => {
   return (
@@ -11,7 +11,7 @@ const ProfileCard = ({ profile }) => {
         <p>Contact: {profile.contact}</p>
         <p>{profile.confirmation === 0 ? "Not Attending" : "Attending"}</p>
       </div>
-      <PotLuck />
+      
       
     </div>
   );
