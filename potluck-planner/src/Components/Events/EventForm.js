@@ -107,15 +107,13 @@ export default function EventForm() {
               />
             </div>
             <div className="eventItem">
-              <label>
-                Allergy Alert
-                <input
-                  type="checkbox"
-                  name="AllergyAlert"
-                  value={eventData.AllergyAlert}
-                  onChange={change}
-                />
-              </label>
+              <label>Allergy Alert</label>
+              <input
+                type="checkbox"
+                name="AllergyAlert"
+                value={eventData.AllergyAlert}
+                onChange={change}
+              />
             </div>
             <div className="eventItemSub">
               <button id="subutton">Create</button>
