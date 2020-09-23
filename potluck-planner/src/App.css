@@ -167,7 +167,6 @@ nav a:hover {
 
 /* Forms */
 .loginBox {
-  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,7 +182,6 @@ nav a:hover {
 .mainForm {
   border: 2px solid black;
   border-radius: 25px;
-  width: 15%;
   padding: 2%;
   display: flex;
   align-items: center;
@@ -361,11 +359,57 @@ nav a:hover {
   color: #402a2c;
   width: 10%;
   font-size: 1.5rem;
-  margin: 0 5%;
+  margin: 0 5% 2%;
   padding: 1%;
   border-radius: 30px;
 }
 .addEventBtn:hover {
   background-color: #402a2c;
   color: #d64933;
+}
+
+/* Break Points */
+@media (max-width: 800px) {
+  .head h1 {
+    font-size: 3rem;
+  }
+  .profile-card {
+    width: 50%;
+  }
+  nav a {
+    font-size: 1.5rem;
+  }
+  .eventForm {
+    width: 50%;
+  }
+  .eventForm h2 {
+    font-size: 2rem;
+  }
+  .addEventBtn {
+    width: 20%;
+  }
+}
+@media (max-width: 500px) {
+  .head h1 {
+    font-size: 2rem;
+  }
+  .mainForm {
+    padding: 2% 10%;
+    margin-top: 12%;
+  }
+  nav a {
+    font-size: 1rem;
+  }
+  .eventForm {
+    width: 70%;
+  }
+  .eventForm h2 {
+    font-size: 2rem;
+  }
+  .addEventBtn {
+    width: 30%;
+  }
+  .mainForm {
+    width: 25%;
+  }
 }
