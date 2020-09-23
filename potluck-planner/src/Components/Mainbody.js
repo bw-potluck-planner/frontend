@@ -11,11 +11,11 @@ export default function Main() {
 
         {/* <EventForm /> */}
 
-        {/* <h2>Potluck Planner</h2>
+        <h2>Potluck Planner</h2>
         <img
           src="https://floridacommunity.com/wp-content/uploads/2016/11/potluck.jpg"
           alt=""
-        /> */}
+        />
       </div>
     </>
   );

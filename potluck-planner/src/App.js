@@ -20,8 +20,8 @@ function App() {
           <PrivateRoute path="/protected" component={Profile} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
+          <Route path="/" component={Main} />
         </Switch>
-        <Main />
       </div>
     </>
   );

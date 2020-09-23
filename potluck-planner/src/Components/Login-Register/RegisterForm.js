@@ -82,46 +82,48 @@ export default function Register() {
 
   return (
     <>
-      <div className="loginBox">
-        <div className="mainForm">
-          <h2>Sign up!</h2>
-          <form onSubmit={submit}>
-            <div className="item">
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                value={userData.username}
-                onChange={change}
-              />
-            </div>
-            <p className="errorMsg">{formErrors.username}</p>
-            <div className="item">
-              <input
-                type="text"
-                name="password"
-                placeholder="Password"
-                value={userData.password}
-                onChange={change}
-              />
-            </div>
-            <p className="errorMsg">{formErrors.password}</p>
-            <div className="item">
-              <input
-                type="text"
-                name="role"
-                placeholder="Role"
-                value={userData.role}
-                onChange={change}
-              />
-            </div>
-            <p className="errorMsg">{formErrors.role}</p>
-            <div className="itemSub">
-              <button id="subutton" disabled={disabled}>
-                Register
-              </button>
-            </div>
-          </form>
+      <div className="formBG">
+        <div className="loginBox">
+          <div className="mainForm">
+            <h2>Sign up!</h2>
+            <form onSubmit={submit}>
+              <div className="item">
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                  value={userData.username}
+                  onChange={change}
+                />
+              </div>
+              <p className="errorMsg">{formErrors.username}</p>
+              <div className="item">
+                <input
+                  type="text"
+                  name="password"
+                  placeholder="Password"
+                  value={userData.password}
+                  onChange={change}
+                />
+              </div>
+              <p className="errorMsg">{formErrors.password}</p>
+              <div className="item">
+                <input
+                  type="text"
+                  name="role"
+                  placeholder="Role"
+                  value={userData.role}
+                  onChange={change}
+                />
+              </div>
+              <p className="errorMsg">{formErrors.role}</p>
+              <div className="itemSub">
+                <button id="subutton" disabled={disabled}>
+                  Register
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </>
