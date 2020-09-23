@@ -1,30 +1,41 @@
-import React, { useState, useEffect } from "react";
-import axios from "../../../node_modules/axios";
+import React, { useState } from "react";
+
+import { connect } from 'react-redux'
+
+import {postPotluck} from '../../actions/actions'
 
 const blankData = {
-  Name: "",
-  Date: "",
-  Location: "",
-  "Dish Name": "",
-  Description: "",
-  AllergyAlert: false,
-  Email: "",
+  name: "",
+  date: "",
+  location: "",
+  dish: "",
+  description: "",
+  allergyalert: false,
+  email: "",
 };
 
-export default function EventForm() {
+function EventForm(props) {
   const [eventData, setEventData] = useState(blankData);
+  // const id = useParams().id
 
-  //   useEffect(() => {
-  //     axios
-  //       .get("")
-  //       .then((res) => {
-  //         console.log(res);
-  //         // setEventData(res.data);
+  // useEffect(() => {
+  //   // props.getPotluckByID(id)
+
+  //       axiosWithAuth().get(`/api/potluck/${id}`)
+  //       .then(res => {
+  //         console.log('Action getByID --> ', res);
+  //         setEventData({ name: res.data.name, description: res.data.description})
   //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }, []);
+  //       .catch(err => {
+  //       console.log(err);
+  // })    
+
+    // when user clicks an edit button, get ID of that card
+    // make a GET request using that ID
+    // fill out the form with the response data you get back for it.
+  // }, [])
+
+ 
 
   const change = (evt) => {
     const { name, value, checked, type } = evt.target;
@@ -34,20 +45,10 @@ export default function EventForm() {
 
   const submit = (evt) => {
     evt.preventDefault();
-    setEventData(blankData);
+    props.postPotluck(eventData)
+    
   };
 
-  useEffect(() => {
-    axios
-      .get("")
-      .then((res) => {
-        console.log(res);
-        // setUserList(...userList, res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   return (
     <>
@@ -61,8 +62,8 @@ export default function EventForm() {
               <label>Event Name</label>
               <input
                 type="text"
-                name="Name"
-                value={eventData.Name}
+                name="name"
+                value={eventData.name}
                 onChange={change}
               />
             </div>
@@ -70,21 +71,26 @@ export default function EventForm() {
               <label>Date</label>
               <input
                 type="text"
-                name="Date"
-                value={eventData.Date}
+                name="date"
+                value={eventData.date}
                 onChange={change}
               />
             </div>
             <div className="eventItem">
               <label>Location</label>
-              <input type="text" value={eventData.Location} onChange={change} />
+              <input
+                type="text"
+                name="location"
+                value={eventData.location}
+                onChange={change}
+              />
             </div>
             <div className="eventItem">
               <label>Dish Name</label>
               <input
                 type="text"
-                name="Dish Name"
-                value={eventData["Dish Name"]}
+                name="dish"
+                value={eventData.dish}
                 onChange={change}
               />
             </div>
@@ -92,8 +98,8 @@ export default function EventForm() {
               <label>Description</label>
               <input
                 type="text"
-                name="Description"
-                value={eventData.Description}
+                name="description"
+                value={eventData.description}
                 onChange={change}
               />
             </div>
@@ -101,8 +107,8 @@ export default function EventForm() {
               <label>Email</label>
               <input
                 type="text"
-                name="Email"
-                value={eventData.Email}
+                name="email"
+                value={eventData.email}
                 onChange={change}
               />
             </div>
@@ -111,8 +117,8 @@ export default function EventForm() {
                 Allergy Alert
                 <input
                   type="checkbox"
-                  name="AllergyAlert"
-                  value={eventData.AllergyAlert}
+                  name="allergyalert"
+                  value={eventData.allergyalert}
                   onChange={change}
                 />
               </label>
@@ -126,3 +132,10 @@ export default function EventForm() {
     </>
   );
 }
+function mapStateToProps(state) {
+  return{
+    potluck: state.potluck
+  }
+}
+
+export default connect(mapStateToProps, {postPotluck})(EventForm)

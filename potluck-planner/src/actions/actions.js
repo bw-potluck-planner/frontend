@@ -53,7 +53,8 @@ export const deleteData = (changes, id) => dispatch => {
 
 export const getPotluck = () => dispatch => {
     axiosWithAuth().get("/api/potluck")
-    .then(res => {
+        .then(res => {
+        console.log('Action get potluck--> ',res);
         dispatch({type: GET_POTLUCK, payload: res.data})
     })
     .catch(err => {
@@ -61,18 +62,29 @@ export const getPotluck = () => dispatch => {
     })
 }
 
-export const postPotluck = () => dispatch => {
-    axiosWithAuth().get("/api/potluck")
+export const getPotluckByID = (id) => dispatch => {
+    axiosWithAuth().get(`/api/potluck/${id}`)
+        .then(res => {
+            console.log('Action getByID --> ', res);
+        })
+        .catch(err => {
+        console.log(err);
+    })    
+}
+
+export const postPotluck = (data) => dispatch => {
+    console.log('Action --> ', data);
+    axiosWithAuth().post("/api/potluck", data)
     .then(res => {
         dispatch({type: POST_POTLUCK, payload: res.data})
     })
     .catch(err => {
-        console.log(err)
+        console.dir(err)
     })
 }
 
 export const putPotluck = (changes, id) => dispatch => {
-    axiosWithAuth().get(`/api/potluck/${id}`, changes)
+    axiosWithAuth().put(`/api/potluck/${id}`, changes)
     .then(res => {
         dispatch({type: PUT_POTLUCK, payload: res.data})
     })
@@ -82,7 +94,7 @@ export const putPotluck = (changes, id) => dispatch => {
 }
 
 export const deletePotluck = (changes, id) => dispatch => {
-    axiosWithAuth().get(`/api/potluck/${id}`, changes)
+    axiosWithAuth().delete(`/api/potluck/${id}`, changes)
     .then(res => {
         dispatch({type: DELETE_POTLUCK, payload: res.data})
     })

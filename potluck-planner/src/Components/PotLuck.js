@@ -32,7 +32,7 @@ const PotLuck = (props) => {
 
 function mapStateToProps(state) {
   return {
-    potluck: state.profile,
+    potluck: state.potluck,
   };
 }
 
