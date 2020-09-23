@@ -1,64 +1,86 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { getPotluck, deletePotluck } from "../../actions/actions";
+import {useHistory} from "react-router-dom"
 
-
-const blankData = {
-  Name: "",
-  Date: "",
-  Location: "",
-  "Dish Name": "",
-  Description: "",
-  AllergyAlert: false,
-  Email: "",
+const eventData = {
+  name: "",
+  date: "",
+  location: "",
+  dish: "",
+  description: "",
+  allergyalert: false,
+  email: "",
 };
-export default function EventBody() {
-  const [eventData, setEventData] = useState(blankData);
+
+function EventBody(props) {
+  const { getPotluck, potluck, deletePotluck } = props;
+  const [event, setEvent] = useState(eventData);
+  const history = useHistory()
 
   useEffect(() => {
-    axios
-      .get("")
-      .then((res) => {
-        console.log(res);
-        // setEventData(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    getPotluck();
   }, []);
+
+  const edit = (e) => {
+    e.preventDefault();
+    history.push(`/edit-event/${e.target.id}`);
+  };
+
+  const deleteEvent = (e) => {
+    e.preventDefault();
+    deletePotluck(e.target.id);
+    history.push("/protected");
+  };
 
   return (
     <>
-      <div className="eventBody">
-        <div className="divH2">
-          <h2>{eventData.Name !== "" ? eventData.Name : "Event Name"}</h2>
-        </div>
-        <div className="infoBox">
-          <p>Date: {eventData.Date !== "" ? eventData.Date : "2000/22/22"}</p>
-          <p>
-            Location:{" "}
-            {eventData.Location !== "" ? eventData.Location : "Somewhere, OR"}
-          </p>
-          <p>
-            Items:{" "}
-            {eventData["Dish Name"] !== ""
-              ? eventData["Dish Name"]
-              : "No Items"}
-          </p>
-          <p>
-            Description:{" "}
-            {eventData.Description !== ""
-              ? eventData.Description
-              : "Description goes here"}
-          </p>
-          <p>
-            Allergy Alert:{" "}
-            {eventData.AllergyAlert ? "Allergy Warning" : "No Allergy Warning"}
-          </p>
-          <p>
-            Contact: {eventData.Email !== "" ? eventData.Email : "No Email"}
-          </p>
-        </div>
-      </div>
+      { potluck.map((potluck) => {
+        return (
+          <div className="eventBody">
+            <div className="divH2">
+              <h2>{potluck.name !== "" ? potluck.name : "Event Name"}</h2>
+            </div>
+            <div className="infoBox">
+              <p>Date: {potluck.date !== "" ? potluck.date : "2000/22/22"}</p>
+              <p>
+                Location:{" "}
+                {potluck.location !== "" ? potluck.location : "Somewhere, OR"}
+              </p>
+              <p>Items: {potluck.dish !== "" ? potluck.dish : "No Items"}</p>
+              <p>
+                Description:{" "}
+                {potluck.description !== ""
+                  ? potluck.description
+                  : "Description goes here"}
+              </p>
+              <p>
+                Allergy Alert:{" "}
+                {potluck.allergyalert
+                  ? "Allergy Warning"
+                  : "No Allergy Warning"}
+              </p>
+              <p>
+                Contact: {potluck.email !== "" ? potluck.email : "No Email"}
+              </p>
+            </div>
+            <button className="editEventBtn" id={potluck.id} onClick={edit}>
+              Edit Event
+            </button>
+            <button className="deletebutton" id={potluck.id} onClick={deleteEvent}>
+              Delete Event
+            </button>
+          </div>
+        );
+      })}
     </>
   );
 }
+
+function mapStateToProps(state) {
+  return {
+    potluck:  state.potluck || [],
+  };
+}
+
+export default connect(mapStateToProps, { getPotluck, deletePotluck })(EventBody);

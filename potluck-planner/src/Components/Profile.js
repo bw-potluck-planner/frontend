@@ -1,35 +1,53 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchData } from "../actions/actions";
+import { deletePotluck, fetchData } from "../actions/actions";
 import ProfileCard from "./ProfileCard";
-import EventForm from "./Events/EventForm";
+import EventBody from "./Events/EventBody";
+import { useHistory } from "react-router-dom";
 
+const eventData = {
+  name: "",
+  date: "",
+  location: "",
+  dish: "",
+  description: "",
+  allergyalert: false,
+  email: "",
+};
 
 const Profile = (props) => {
   const [visable, setVisable] = useState(false);
+  const [event, setEvent] = useState(eventData);
   const { fetchData } = props;
+  const history = useHistory();
 
   useEffect(() => {
     fetchData();
   }, []);
 
+  const add = (e) => {
+    e.preventDefault();
+    history.push("/add-event");
+  };
+
+ 
+
   return (
     <div>
+     
       {props.profile.map((profile) => {
         console.log(profile);
         return <ProfileCard key={profile.id} profile={profile} />;
       })}
-
-      <button
-        className="addEventBtn"
-        onClick={() => {
-          setVisable(!visable);
-        }}
-      >
+       <div>
+      <button className="addEventBtn" onClick={add}>
         Add Event
       </button>
-      {!visable ? "" : <EventForm />}
-      
+      </div>
+      <div>
+        <EventBody />
+      </div>
+     
     </div>
   );
 };
