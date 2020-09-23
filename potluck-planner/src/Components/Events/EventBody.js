@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { getPotluck, deletePotluck } from "../../actions/actions";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
 const eventData = {
   name: "",
@@ -16,7 +16,7 @@ const eventData = {
 function EventBody(props) {
   const { getPotluck, potluck, deletePotluck } = props;
   const [event, setEvent] = useState(eventData);
-  const history = useHistory()
+  const history = useHistory();
 
   useEffect(() => {
     getPotluck();
@@ -35,11 +35,27 @@ function EventBody(props) {
 
   return (
     <>
-      { potluck.map((potluck) => {
+      {potluck.map((potluck) => {
         return (
           <div className="eventBody">
             <div className="divH2">
               <h2>{potluck.name !== "" ? potluck.name : "Event Name"}</h2>
+              <div className="btnBox">
+                <button
+                  className="editEventBtn eventBtn"
+                  id={potluck.id}
+                  onClick={edit}
+                >
+                  Edit Event
+                </button>
+                <button
+                  className="deletebutton eventBtn"
+                  id={potluck.id}
+                  onClick={deleteEvent}
+                >
+                  Delete Event
+                </button>
+              </div>
             </div>
             <div className="infoBox">
               <p>Date: {potluck.date !== "" ? potluck.date : "2000/22/22"}</p>
@@ -64,12 +80,6 @@ function EventBody(props) {
                 Contact: {potluck.email !== "" ? potluck.email : "No Email"}
               </p>
             </div>
-            <button className="editEventBtn" id={potluck.id} onClick={edit}>
-              Edit Event
-            </button>
-            <button className="deletebutton" id={potluck.id} onClick={deleteEvent}>
-              Delete Event
-            </button>
           </div>
         );
       })}
@@ -79,8 +89,10 @@ function EventBody(props) {
 
 function mapStateToProps(state) {
   return {
-    potluck:  state.potluck || [],
+    potluck: state.potluck || [],
   };
 }
 
-export default connect(mapStateToProps, { getPotluck, deletePotluck })(EventBody);
+export default connect(mapStateToProps, { getPotluck, deletePotluck })(
+  EventBody
+);

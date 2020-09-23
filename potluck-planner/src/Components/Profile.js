@@ -30,24 +30,22 @@ const Profile = (props) => {
     history.push("/add-event");
   };
 
- 
-
   return (
     <div>
-     
-      {props.profile.map((profile) => {
-        console.log(profile);
-        return <ProfileCard key={profile.id} profile={profile} />;
-      })}
-       <div>
-      <button className="addEventBtn" onClick={add}>
-        Add Event
-      </button>
+      <div className="cards">
+        {props.profile.map((profile) => {
+          console.log(profile);
+          return <ProfileCard key={profile.id} profile={profile} />;
+        })}
+      </div>
+      <div>
+        <button className="addEventBtn" onClick={add}>
+          Add Event
+        </button>
       </div>
       <div>
         <EventBody />
       </div>
-     
     </div>
   );
 };
