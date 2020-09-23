@@ -7,11 +7,7 @@ export default function Main() {
   return (
     <>
       <div className="mainBody">
-        {/* <EventBody /> */}
-
-        {/* <EventForm /> */}
-
-        <h2>Potluck Planner</h2>
+        <h2>Get your Potluck on!</h2>
         <img
           src="https://floridacommunity.com/wp-content/uploads/2016/11/potluck.jpg"
           alt=""
