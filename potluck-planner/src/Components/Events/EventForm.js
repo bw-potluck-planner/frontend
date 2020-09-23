@@ -29,7 +29,16 @@ function EventForm(props) {
 
   const submit = (evt) => {
     evt.preventDefault();
-    postPotluck(eventData)
+    const newEvent = {
+      name: eventData.name,
+      date: eventData.date,
+      location: eventData.location,
+      dish: eventData.dish,
+      description: eventData.description,
+      allergyalert: eventData.allergyalert,
+      email: eventData.email,
+    }
+    postPotluck(newEvent)
     history.push("/protected")
   };
 

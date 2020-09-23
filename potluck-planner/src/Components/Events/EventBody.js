@@ -14,7 +14,7 @@ const eventData = {
 };
 
 function EventBody(props) {
-  const { getPotluck } = props;
+  const { getPotluck, potluck, deletePotluck } = props;
   const [event, setEvent] = useState(eventData);
   const history = useHistory()
 
@@ -24,18 +24,18 @@ function EventBody(props) {
 
   const edit = (e) => {
     e.preventDefault();
-    history.push(`/edit-event/${event.id}`);
+    history.push(`/edit-event/${e.target.id}`);
   };
 
   const deleteEvent = (e) => {
     e.preventDefault();
-    deletePotluck(event.id);
+    deletePotluck(e.target.id);
     history.push("/protected");
   };
 
   return (
     <>
-      {props.potluck.map((potluck) => {
+      { potluck.map((potluck) => {
         return (
           <div className="eventBody">
             <div className="divH2">
@@ -64,10 +64,10 @@ function EventBody(props) {
                 Contact: {potluck.email !== "" ? potluck.email : "No Email"}
               </p>
             </div>
-            <button className="editEventBtn" onClick={edit}>
+            <button className="editEventBtn" id={potluck.id} onClick={edit}>
               Edit Event
             </button>
-            <button className="deletebutton" onClick={deleteEvent}>
+            <button className="deletebutton" id={potluck.id} onClick={deleteEvent}>
               Delete Event
             </button>
           </div>
@@ -79,8 +79,8 @@ function EventBody(props) {
 
 function mapStateToProps(state) {
   return {
-    potluck: state.potluck,
+    potluck:  state.potluck || [],
   };
 }
 
-export default connect(mapStateToProps, { getPotluck })(EventBody);
+export default connect(mapStateToProps, { getPotluck, deletePotluck })(EventBody);

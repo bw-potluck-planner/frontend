@@ -34,16 +34,20 @@ const Profile = (props) => {
 
   return (
     <div>
+     
       {props.profile.map((profile) => {
         console.log(profile);
         return <ProfileCard key={profile.id} profile={profile} />;
       })}
-      <div>
-        <EventBody />
-      </div>
+       <div>
       <button className="addEventBtn" onClick={add}>
         Add Event
       </button>
+      </div>
+      <div>
+        <EventBody />
+      </div>
+     
     </div>
   );
 };

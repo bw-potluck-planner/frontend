@@ -54,6 +54,7 @@ export default (state = initialState, action) => {
             potluck: action.payload
         }
     case POST_POTLUCK:
+      console.log('Reducer --> POST PL ', action.payload)
       return {
         ...state,
         potluck: action.payload,
