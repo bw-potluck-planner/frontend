@@ -42,6 +42,7 @@ export default function Register() {
       })
       .finally(() => {
         setUserData(blankData);
+        window.location.reload()
       });
     // addUser();
     // setUserData(blankData);

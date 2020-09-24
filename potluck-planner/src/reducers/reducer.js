@@ -39,9 +39,7 @@ export default (state = initialState, action) => {
     case DELETE_DATA:
       return {
         ...state,
-        profile: state.profile.map((item) =>
-          item.id === action.payload.id ? action.payload : item
-        ),
+        potluck: [...state.potluck.filter(item => item.id ===action.payload.id ? action.payload : item)]
       };
     case GET_POTLUCK:
       return {
@@ -69,9 +67,10 @@ export default (state = initialState, action) => {
     case DELETE_POTLUCK:
       return {
         ...state,
-        potluck: state.potluck.map((item) =>
-          item.id === action.payload.id ? action.payload : item
-        ),
+        // potluck: state.potluck.map((item) =>
+        //   item.id === action.payload.id ? action.payload : item
+        potluck: [...state.potluck.filter(item => item.id === action.payload.id ? action.payload : item)]
+        // ),
       };
 
     default:

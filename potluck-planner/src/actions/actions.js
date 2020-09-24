@@ -103,7 +103,7 @@ export const putPotluck = ( id, changes) => dispatch => {
 export const deletePotluck = ( id) => dispatch => {
     axiosWithAuth().delete(`/api/potluck/${id}`)
     .then(res => {
-        //dispatch({type: DELETE_POTLUCK, payload: res.data})
+        // dispatch({type: DELETE_POTLUCK, payload: res.data})
        window.location.reload()
 
     })
