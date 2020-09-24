@@ -39,6 +39,7 @@ export default function Form() {
       })
       .finally(() => {
         setUserData(blankData);
+        window.location.reload()
       });
   };
 

@@ -11,11 +11,14 @@ export const POST_POTLUCK = "POST_POTLUCK";
 export const PUT_POTLUCK = "PUT_POTLUCK";
 export const DELETE_POTLUCK = "DELETE_POTLUCK";
 
+
+
 export const fetchData = () => dispatch => {
    axiosWithAuth().get("/api/profile")
    .then(res => {
        console.log(res.data)
        dispatch({type: FETCH_DATA, payload: res.data})
+       
    })
    .catch(err => {
        console.log(err)
@@ -26,6 +29,7 @@ export const postData = () => dispatch => {
     axiosWithAuth().post("/api/profile")
     .then(res => {
         dispatch({type: POST_DATA, payload: res.data})
+        
     })
     .catch(err => {
         console.log(err)
